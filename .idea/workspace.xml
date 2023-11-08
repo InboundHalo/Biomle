@@ -1,23 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="ArtifactsWorkspaceSettings">
+    <artifacts-to-build>
+      <artifact name="Biomle:jar" />
+    </artifacts-to-build>
+  </component>
   <component name="AutoImportSettings">
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="29a3e1d9-ae39-49a8-b978-71c302b907f2" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/net/gamingtavern/Color.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/net/gamingtavern/Main.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/net/gamingtavern/Output.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/net/gamingtavern/biome/Biome.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/net/gamingtavern/biome/BiomeType.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/a" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/biomes.csv" afterDir="false" />
+    <list default="true" id="29a3e1d9-ae39-49a8-b978-71c302b907f2" name="Changes" comment="Base">
+      <change afterPath="$PROJECT_DIR$/.idea/artifacts/Biomle_jar.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/META-INF/MANIFEST.MF" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/net/gamingtavern/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/gamingtavern/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/net/gamingtavern/biome/Biome.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/net/gamingtavern/biome/BiomeType.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/biomes.csv" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/biomes.csv" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -48,9 +48,10 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "git-widget-placeholder": "master",
-    "project.structure.last.edited": "Libraries",
-    "project.structure.proportion": "0.0",
-    "project.structure.side.proportion": "0.59195405"
+    "project.structure.last.edited": "Artifacts",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.59195405",
+    "run.code.analysis.last.selected.profile": "pProject Default"
   }
 }]]></component>
   <component name="RecentsManager">
@@ -58,7 +59,7 @@
       <recent name="C:\Users\Kieran Beals\Documents\GitHub\Biomle\src\main\resources" />
     </key>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="JAR Application.Biomle.jar">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="net.gamingtavern.Main" />
       <module name="Biomle" />
@@ -72,8 +73,13 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="Biomle.jar" type="JarApplication" temporary="true">
+      <option name="JAR_PATH" value="$PROJECT_DIR$/out/artifacts/Biomle_jar/Biomle.jar" />
+      <method v="2" />
+    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JAR Application.Biomle.jar" />
         <item itemvalue="Application.Main" />
       </list>
     </recent_temporary>
@@ -86,11 +92,22 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1699412436127</updated>
-      <workItem from="1699412437254" duration="2943000" />
+      <workItem from="1699412437254" duration="8025000" />
     </task>
+    <task id="LOCAL-00001" summary="Base">
+      <option name="closed" value="true" />
+      <created>1699415522200</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1699415522200</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+    <MESSAGE value="Base" />
+    <option name="LAST_COMMIT_MESSAGE" value="Base" />
   </component>
 </project>
