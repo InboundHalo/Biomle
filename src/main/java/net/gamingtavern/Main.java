@@ -1,22 +1,15 @@
 package net.gamingtavern;
 
-import net.gamingtavern.biome.Biome;
-import net.gamingtavern.biome.BiomeType;
-
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.*;
 
 public class Main {
-
-    public static ArrayList<Biome> biomes;
-
+    public static String[] headers;
+    public static Map<String, String[]> biomes;
+    public static ArrayList<String> keys;
 
     public static void main(String[] args) {
-
-
-        //System.out.println(Color.green + "Hello " + Color.red + "world!");
-
         File file = new File("src/main/resources/biomes.csv");
         Scanner scanner;
 
@@ -27,81 +20,94 @@ public class Main {
             return;
         }
 
-        biomes = new ArrayList<>();
+        biomes = new HashMap<>();
 
-        scanner.next();
+        headers = scanner.nextLine().split(",");
 
         while (scanner.hasNext()) {
-            String next = scanner.next();
+            String next = scanner.nextLine();
 
             String[] strings = next.split(",");
 
-            String biomeName = strings[0];
-            String biomeType = strings[1];
+            if (strings.length != headers.length) {
+                System.err.println("String " + next + " invalid!");
+                continue;
+            }
 
-            BiomeType type = BiomeType.valueOf(biomeType);
+            String key = strings[0];
 
-            Biome biome = new Biome(biomeName, type);
-
-            biomes.add(biome);
-        }
-
-        for (Biome biome : biomes) {
-            Output.println("The biome of " + biome.getName() + " and its a " + biome.getBiomeType());
+            biomes.put(key, strings);
         }
 
         Random random = new Random();
 
-        int randomNumber = random.nextInt(biomes.size());
+        keys = new ArrayList<>(biomes.keySet());
 
-        gameLoop(biomes.get(randomNumber));
+        int randomNumber = random.nextInt(keys.size());
+
+        gameLoop(biomes.get(keys.get(randomNumber)));
     }
 
-    private static void gameLoop(Biome correctBiome) {
-        Biome guess;
+    private static void gameLoop(String[] answer) {
+        String[] guess;
 
         Scanner scanner = new Scanner(System.in);
 
-        while (true) {
+        boolean correct = false;
+
+        do {
             guess = getGuess(scanner);
 
-            if (guess.equals(correctBiome))
-                break;
+            if (Arrays.equals(guess, answer))
+                correct = true;
 
-            Output.println("---------------------");
-
-            Output.println("Biome: " + Color.red + guess.getName());
-
-            Color biomeTypeColor;
-
-            if (guess.getBiomeType() == correctBiome.getBiomeType()) {
-                biomeTypeColor = Color.green;
-            } else {
-                biomeTypeColor = Color.red;
+            try {
+                printCard(guess, answer);
+            } catch (Exception e) {
+                System.err.println("Length was incorrect!");
+                e.printStackTrace();
             }
+        } while (!correct);
+    }
 
-            Output.println("Biome Type: " + biomeTypeColor + guess.getBiomeType());
-
-            Output.println("---------------------");
-
+    private static void printCard(String[] card1, String[] card2) throws Exception {
+        if (card1.length != card2.length || card1.length != headers.length) {
+            throw new Exception();
         }
 
-        Output.println("YAY");
+        Output.println("---------------------");
+
+        for (int i = 0; i < headers.length; i++) {
+            Color color = Color.red;
+
+            String value = card1[i];
+
+            if (value.equals(card2[i])) {
+                color = Color.green;
+            }
+
+            Output.println(
+                    headers[i]
+                    + ": "
+                    + color
+                    + value
+            );
+        }
+
+        Output.println("---------------------");
     }
 
 
 
-    private static Biome getGuess(Scanner scanner) {
+    private static String[] getGuess(Scanner scanner) {
         String guess;
 
         while (true) {
             Output.print("Type your guess: ");
             guess = scanner.next();
 
-            for (Biome biome : biomes) {
-                if (biome.getName().equals(guess)) {
-                    return biome;
-                }
+            if (biomes.containsKey(guess)) {
+                return biomes.get(guess);
             }
 
             Output.println(Color.red + "Invalid Biome!");
