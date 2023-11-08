@@ -1,6 +1,23 @@
-Biome,Biome Type
-beach,wetland
-ocean,nonland
-plains,flatland
-river,wetland
-forest,woodland
+Biome,Biome Type,Temperature,Type of rain
+Ocean,Nonland,Normal,Normal
+Mountain,Highland ,Cool,Snow
+Windswept Hills,Highland ,Cool,Normal
+Forest,Woodland ,Normal,Normal
+Taiga,Woodland ,Normal,Normal
+Snowy Taiga,Woodland ,Frozen,Snow
+Birch Forest,Woodland ,Normal,Normal
+Dark Forest,Woodland ,Normal,Normal
+Jungle,Woodland ,Warm,Normal
+River,Wetland ,Normal,Normal
+Frozen River,Wetland ,Frozen,Snow
+Swamp,Wetland ,Normal,Normal
+Beach,Wetland ,Normal,Normal
+Plains,Flatland,Normal,Normal
+Snowy Plains,Flatland,Frozen,Normal
+Ice Spikes,Flatland,Frozen,Normal
+Desert,Arid-land,Hot,None
+Savanna,Arid-land,Hot,None
+Badlands,Arid-land,Hot,Normal
+Deep Dark,Cave,N/A,N/A
+Dripstone Caves,Cave,N/A,N/A
+Lush Caves,Cave,N/A,N/A
