@@ -106,7 +106,7 @@ public class Main {
                 return biomes.get(guess);
             }
 
-            Output.println(Color.red + "Invalid Biome!");
+            Output.println(Color.red + "Invalid " + keys.get(0) + "!");
         }
     }
 
