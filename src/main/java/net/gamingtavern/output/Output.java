@@ -1,4 +1,6 @@
-package net.gamingtavern;
+package net.gamingtavern.output;
+
+import net.gamingtavern.output.Color;
 
 public class Output {
     private static final Color defaultColor = Color.white;

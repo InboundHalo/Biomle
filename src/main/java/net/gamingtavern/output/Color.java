@@ -1,4 +1,4 @@
-package net.gamingtavern;
+package net.gamingtavern.output;
 
 public enum Color {
     white("97"),

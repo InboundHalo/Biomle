@@ -1,5 +1,8 @@
 package net.gamingtavern;
 
+import net.gamingtavern.output.Color;
+import net.gamingtavern.output.Output;
+
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.*;
