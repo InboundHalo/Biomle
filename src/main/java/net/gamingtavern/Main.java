@@ -10,19 +10,22 @@ public class Main {
     public static ArrayList<String> keys;
 
     public static void main(String[] args) {
-        File file = new File("src/main/resources/biomes.csv");
-        Scanner scanner;
-
         try {
-            scanner = new Scanner(file);
+            loadFile();
         } catch (FileNotFoundException e) {
             System.err.println("The file could not be found!");
             return;
         }
 
-        biomes = new HashMap<>();
+        gameLoop();
+    }
 
-        headers = scanner.nextLine().split(",");
+    private static void loadFile() throws FileNotFoundException{
+        File file = new File("src/main/resources/biomes.csv");
+        Scanner scanner = new Scanner(file);
+
+        biomes = new HashMap<>();
+        headers = scanner.nextLine().split(","); // 12 ms
 
         while (scanner.hasNext()) {
             String next = scanner.nextLine();
@@ -39,24 +42,44 @@ public class Main {
             biomes.put(key, strings);
         }
 
-        Random random = new Random();
+        scanner.close();
 
         keys = new ArrayList<>(biomes.keySet());
-
-        int randomNumber = random.nextInt(keys.size());
-
-        gameLoop(biomes.get(keys.get(randomNumber)));
     }
 
-    private static void gameLoop(String[] answer) {
-        String[] guess;
-
+    private static void gameLoop() {
         Scanner scanner = new Scanner(System.in);
 
+        String input;
+
+        do {
+            Random random = new Random();
+            int randomNumber = random.nextInt(keys.size());
+
+            String biomeName = keys.get(randomNumber);
+            int guesses = guessLoop(scanner, biomes.get(biomeName));
+
+            Output.newln();
+            Output.println(Color.green + "Congratulations!");
+            Output.println("You guessed " + biomeName + " in " + guesses + " guesses!"); // 12 ms
+            Output.newln();
+            Output.print("Type yes to play again: ");
+
+            input = scanner.next();
+        } while (input.equalsIgnoreCase("y") || input.equalsIgnoreCase("yes"));
+
+        scanner.close();
+    }
+
+    private static int guessLoop(Scanner scanner, String[] answer) {
+        String[] guess;
+
         boolean correct = false;
+        int guesses = 0;
 
         do {
             guess = getGuess(scanner);
+            guesses++;
 
             if (Arrays.equals(guess, answer))
                 correct = true;
@@ -68,6 +91,23 @@ public class Main {
                 e.printStackTrace();
             }
         } while (!correct);
+
+        return guesses;
+    }
+
+    private static String[] getGuess(Scanner scanner) {
+        String guess;
+
+        while (true) {
+            Output.print("Type your guess: ");
+            guess = scanner.nextLine();
+
+            if (biomes.containsKey(guess)) {
+                return biomes.get(guess);
+            }
+
+            Output.println(Color.red + "Invalid Biome!");
+        }
     }
 
     private static void printCard(String[] card1, String[] card2) throws Exception {
@@ -95,22 +135,5 @@ public class Main {
         }
 
         Output.println("---------------------");
-    }
-
-
-
-    private static String[] getGuess(Scanner scanner) {
-        String guess;
-
-        while (true) {
-            Output.print("Type your guess: ");
-            guess = scanner.next();
-
-            if (biomes.containsKey(guess)) {
-                return biomes.get(guess);
-            }
-
-            Output.println(Color.red + "Invalid Biome!");
-        }
     }
 }
