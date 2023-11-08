@@ -1,10 +1,9 @@
 package net.gamingtavern;
 
 public enum Color {
-    white("\033[97m"),
-    green("\033[32m"),
-    red("\033[31m"),
-    yellow("\033[33m");
+    white("97"),
+    green("32"),
+    red("31");
 
     private final String color;
 
@@ -14,6 +13,6 @@ public enum Color {
 
     @Override
     public String toString() {
-        return color;
+        return "\033[" + color + "m";
     }
 }
